@@ -51,3 +51,26 @@ function carList() {
 }
 
 carList();
+
+fetch("https://javascript.webexam-mcdm.dk/api/images")
+  .then(function (res) {
+    return res.json();
+  })
+
+  .then((resData) => {
+    const carData = document.getElementById("api-data-cars");
+
+    for (let i = 0; i < resData.length; i++) {
+      const dataApi = Object.values(resData[i]);
+      console.log(carData);
+
+      carData.innerHTML += `<div class='card'><div class='card-image'> <img src="${dataApi[2]}"></img></div><div class='card-title'><h4>${dataApi[1]}</h4></div></div>`;
+    }
+  });
+
+fetch("https://javascript.webexam-mcdm.dk/api/contacts",{
+  method: "POST",
+  body: JSON.stringify({
+    phone: "lorem ipsum",
+    message: "lorem ipsum",
+  })}

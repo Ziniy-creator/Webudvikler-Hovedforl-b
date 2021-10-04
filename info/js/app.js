@@ -3,7 +3,7 @@ const app = express();
 const port = 6600;
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.sendFile(`${__dirname}index.html`);
 });
 
 app.listen(port, () => {
